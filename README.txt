@@ -1,5 +1,9 @@
 PROJEKT: Situacijsko zavedanje pametnega doma
 
+Članek: 
+https://erk.fe.uni-lj.si/2024/papers/ciglar(situacijsko_zavedanje).pdf
+
+
 - Koda se nahaja v datoteki - projekt-FINAL.ipynb
 
 - Podatki so v datoteki: PametniDomPodatkiHome.csv //Podatki niso v tem repozitoriju, glej source HomeC.csv: https://www.kaggle.com/datasets/taranvee/smart-home-dataset-with-weather-information
