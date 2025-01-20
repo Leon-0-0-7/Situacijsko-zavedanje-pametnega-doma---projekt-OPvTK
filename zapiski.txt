@@ -1,0 +1,48 @@
+Opis: Izberite izbrano situacijo v domu (npr. ali je kdo prisotem, priprava obroka, prosti čas, ...). 
+Načrtajte in implementirajte algoritem, ki na osnovi moči na porabnikih določi časovno funkcijo prisotnosti dogodka. 
+Časi so enaki kot v vhodnih podatkih, vrednosti funkcije pa so na intervalu [0, 1], kjer je ta vrednost indicira odstonost (0 ali bližje 0) 
+in prisotnost (1 ali bližje 1). 
+
+Vhodni podatki: tabela .csv, ki jo uvozite kot Pandas Datagrame (če delate s Pythonom). 
+Levi stolpec (index) je čas, ostali stolpci so podatki o moči na porabnikih v odvisnosti od časa.
+
+time,use [kW],gen [kW],House overall [kW],Dishwasher [kW],Furnace 1 [kW],Furnace 2 [kW],Home office [kW],Fridge [kW],Wine cellar [kW],
+Garage door [kW],Kitchen 12 [kW],Kitchen 14 [kW],Kitchen 38 [kW],Barn [kW],Well [kW],Microwave [kW],Living room [kW],Solar [kW],
+temperature,icon,humidity,visibility,summary, apparentTemperature,pressure,windSpeed,cloudCover,windBearing,precipIntensity,
+dewPoint,precipProbability
+
+Rezultat: časovna funkcija prisotnosti dogodka. 
+
+from sklearn.cluster import AgglomerativeClustering
+from scipy.cluster.hierarchy import linkage, dendrogram
+
+
+
+Plan izvedbe: 
+1. pregled podatkov: *kaj predstvalja: precipIntensity, precipProbability?
+2. določitev situacije: prihod v stanovanje
+3. katere porabnike bi gledal: Garage in kitchen**, Microwave, Living room, morda tudi house overall - tiste ki jih človek uporablja:
+4. algoritem: 
+ - ali so se odprla garažna vrata - sprememba podabe Garage
+ - ali je sledila večja poraba na porabnikih doma, za katere je potreben človeško faktor: Microwave, Kitchen, Living room
+ - ali je prišlo do spremembe v porabni
+ - če se to zgodi potem se je verjetno zgodil prihod v stanovanje -> prisoten dogodek 1, odosten 0
+ ** ali obstaja orodje/knjižnica za kaj takega?
+
+5. poročilo
+
+
+
+# from sklearn.cluster import AgglomerativeClustering
+# from scipy.cluster.hierarchy import linkage, dendrogram
+
+# dendrogram
+
+# model = AgglomerativeClustering(distance_threshold=0, n_clusters=None)
+# model_fit = model.fit(X_df)
+
+# #nenadzorovano ucenje
+
+
+
+
